@@ -217,26 +217,26 @@ let isRoadClear = confirm('Is road clear?');
 
 switch (color) {
     case 'green':
-        if (isRoadClear === true) {
+        if (isRoadClear) {
             alert(`Go`);
         }
-        if (isRoadClear === false) {
+        if (!isRoadClear) {
             alert(`wait until the violators pass`);
         }
         break;
     case 'yellow':
-        if (isRoadClear === true) {
+        if (isRoadClear) {
             alert(`Wait`);
         }
-        if (isRoadClear === false) {
+        if (!isRoadClear) {
             alert(`wait - early`);
         }
         break;
     case 'red':
-        if (isRoadClear === true) {
+        if (isRoadClear) {
             alert(`Stop - early`);
         }
-        if (isRoadClear === false) {
+        if (!isRoadClear) {
             alert(`stand and wait`);
         }
         break;
