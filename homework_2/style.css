@@ -1,0 +1,64 @@
+.product-image {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-card {
+    border: 1px dotted black;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    background: papayawhip;
+}
+
+.product-title {
+text-align: center;
+    color: crimson;
+
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background: skyblue;
+}
+
+.post-card {
+
+    width: 15%;
+    border: 1px dotted #0898dc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    background: whitesmoke;
+}
+
+h2, h3 {
+    text-align: center;
+    color: crimson;
+    text-transform: uppercase;
+}
+
+.user-box {
+    width: 100%;
+}
+
+.user-block {
+    width: 48%;
+    border: 1px dotted deepskyblue;
+    padding: 5px;
+    margin: 5px;
+    background: lightblue;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.address-block {
+    background: #84b5f1;
+  color: darkblue;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
