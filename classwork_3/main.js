@@ -239,15 +239,41 @@
 //
 // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let arr2 = [];
-
-for (const value of arr) {
-    arr2.push(value);
-}
-console.log(arr2);
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let arr2 = [];
+//
+// for (const value of arr) {
+//     arr2.push(value);
+// }
+// console.log(arr2);
 
 //
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
+
+// let arr = ['a', 'b', 'c'];
+// let str = [];
+// for (const string of arr) {
+//     str += string
+// }
+// console.log(str);
+
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+
+// let arr = ['a', 'b', 'c'];
+// let str = [];
+// let i = 0;
+// while (i<arr.length) {
+//     str+=arr[i];
+//     i++;
+// }
+// console.log(str);
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
+
+// let arr = ['a', 'b', 'c'];
+// let str = [];
+// for (let i = 0; i < arr.length; i++) {
+//     str += arr[i];
+// }
+// console.log(str);
