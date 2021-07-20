@@ -68,14 +68,12 @@
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
 // Взяти масив цей  User[] та: Відфільтрувати , залишивши тільки об'єкти з парними id (filter) та Відсортувати його по id. по зростанню (sort)
 
-class User {
-    constructor(id, name, surname, email, phone) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
-    }
+function User(id, name, surname, email, phone) {
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.phone = phone;
 }
 
 let users = [
