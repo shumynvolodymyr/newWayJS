@@ -76,12 +76,10 @@ class Tag {
     constructor(titleOfTag, action, titleOfAttr, actionOfAttr, titleOfAttr2, actionOfAttr2) {
         this.titleOfTag = titleOfTag;
         this.action = action;
-        this.attrs = [{
-            titleOfAttr: titleOfAttr,
-            actionOfAttr: actionOfAttr,
-            titleOfAttr2: titleOfAttr2,
-            actionOfAttr2: actionOfAttr2
-        }];
+        this.attrs = [
+            {titleOfAttr: titleOfAttr, actionOfAttr: actionOfAttr},
+            {titleOfAttr2: titleOfAttr2, actionOfAttr2: actionOfAttr2}
+        ];
     }
 }
 
