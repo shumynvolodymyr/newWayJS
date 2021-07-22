@@ -99,12 +99,21 @@ let users = [
 // console.log(sortID);
 //-------------------------------------------------------------------------------------
 
-function filtersSort(arr) {
-    let filter = arr.filter(value => value.id % 2 === 0);
-    filter.sort((a, b) => {
-        return a.id - b.id;
-    })
-    console.log(filter);
-}
+// function filtersSort(arr) {
+//     let filter = arr.filter(value => value.id % 2 === 0);
+//     filter.sort((a, b) => {
+//         return a.id - b.id;
+//     })
+//     console.log(filter);
+// }
+//
+// filtersSort(users);
 
-filtersSort(users);
+
+//------------------------------------------------------------------------
+
+let filter = users.filter(value => value.id % 2 === 0).sort((a, b) => {
+    return a.id - b.id
+});
+console.log(filter);
+
