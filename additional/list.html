@@ -14,15 +14,21 @@
 
         .productList {
             width: 44%;
-            margin: 10px;
-            padding: 5px;
+            margin: 13px;
+            padding: 7px;
             border: 1px dotted silver;
             background: #3ec3d0;
             box-shadow: 10px 5px 5px red;
         }
 
+        .box {
+            width: 250px;
+            height: 250px;
+        }
+
         img {
             width: 50%;
+            height: 50%;
         }
 
         button {
@@ -53,8 +59,8 @@
     const products = localStorage.getItem('products');
     const header = document.getElementById('header');
     const btn = document.getElementById('btn');
-    const productList = JSON.parse(products)
-    console.log(productList)
+    const productList = JSON.parse(products);
+    // console.log(productList);
 
     for (const product of productList) {
 
@@ -67,7 +73,7 @@
         container.innerHTML = `
 Name: ${product.name}; <br>
 Quantity: ${product.quantity}; <br>
-Price: ${product.price}; <br>
+Price: ${product.price} UAH; <br>
 <img src="${product.image}" alt="${product.name}">
 `;
         div.append(container);
@@ -78,12 +84,14 @@ Price: ${product.price}; <br>
         button.innerText = 'DEL';
         div.append(button);
 
-
-        //// не получалося нижче зробити це для видалення одного товару:(
-
-
         button.onclick = function (ev) {
-            localStorage.removeItem('products')
+            const myProduct = JSON.parse(localStorage.getItem("products"));
+            myProduct.splice(0, 1); ////видаляє по нульовому товару- нерозібрався як відловити потрібний товар
+            localStorage.setItem('products', JSON.stringify(myProduct))
+            window.location.reload();
+
+            console.log(ev);
+            // console.log(myProduct);
         }
     }
 
