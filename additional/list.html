@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additional 5</title>
+
+    <style>
+        #header {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            background: #d9caca;
+        }
+
+        .productList {
+            width: 44%;
+            margin: 10px;
+            padding: 5px;
+            border: 1px dotted silver;
+            background: #3ec3d0;
+            box-shadow: 10px 5px 5px red;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        button {
+            color: crimson;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="header"></div>
+
+<button name="btn" id="btn">Delete All</button>
+
+<script>
+    // - Імітуємо наповнення інтернет магазину товарами :
+    //     Створити форму з наступними полями :
+    //     - назва товару
+    // - кількість товару
+    // - ціна товару
+    // - картинка товару (посилання з інтернету)
+    // Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись.
+    //     створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
+    // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
+    //     До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
+
+
+    const products = localStorage.getItem('products');
+    const header = document.getElementById('header');
+    const btn = document.getElementById('btn');
+    const productList = JSON.parse(products)
+    console.log(productList)
+
+    for (const product of productList) {
+
+        const div = document.createElement('div');
+        div.classList.add('productList');
+
+        const container = document.createElement('div');
+        container.classList.add('box');
+
+        container.innerHTML = `
+Name: ${product.name}; <br>
+Quantity: ${product.quantity}; <br>
+Price: ${product.price}; <br>
+<img src="${product.image}" alt="${product.name}">
+`;
+        div.append(container);
+        header.append(div);
+        document.body.append(header);
+
+        const button = document.createElement('button');
+        button.innerText = 'DEL';
+        div.append(button);
+
+
+        //// не получалося нижче зробити це для видалення одного товару:(
+
+
+        button.onclick = function (ev) {
+            localStorage.removeItem('products')
+        }
+    }
+
+    btn.onclick = function (ev) {
+        localStorage.clear();
+        window.location.reload();
+    };
+
+</script>
+
+</body>
+</html>
+
+

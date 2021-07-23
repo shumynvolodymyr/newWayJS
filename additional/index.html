@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Additional</title>
+
+    <!--    lesson 5-->
+    <style>
+        input {
+            background: #e7af84;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 2px;
+        }
+
+        a {
+            margin: 15px;
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: crimson;
+        }
+
+    </style>
+    <!--    /lesson 5-->
+
 </head>
 <body>
-<script src="lesson3.js"></script>
-<script src="lesson4.js"></script>
+
+<!--// - Створити форму з інпутом для введення ім'я, та action="index2.html".-->
+<!--// При відправці данних з форми, зберігати ім'я в localstorage, та переходити на index2.html.-->
+<!--// На index2.html виводити записане в localstorage ім'я в div-->
+
+<!--<form name='nameForm' id="formForName" action="index2.html" >-->
+<!--    <input type="text" name="name" value="Name">-->
+<!--    <input type="submit" name="submit">-->
+<!--</form>-->
+
+<!---------------------------------------------------------------------------------------->
+<a href='list.html' id="toProductList"> На сторінку товарів</a>
+
+<form name="formProduct" id="formForProduct">
+    <label><input type="text" name="nameProduct" value="Назва товару"></label> <br>
+    <label><input type="text" name="quantityProduct" value="Кількість товару"></label> <br>
+    <label><input type="text" name="priceProduct" value="Ціна товару"></label> <br>
+    <label> <input type="text" name="imageProduct" value="Картинка товару"></label>
+    <label><input type="submit" name="submit" value="Save"></label>
+</form>
+
+<!--<script src="lesson3.js"></script>-->
+<!--<script src="lesson4.js"></script>-->
+<script src="lesson5.js"></script>
 </body>
 </html>
