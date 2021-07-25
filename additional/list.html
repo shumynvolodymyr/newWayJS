@@ -41,6 +41,8 @@
 
 <div id="header"></div>
 
+<h3><a href="index.html">Home page</a></h3>
+
 <button name="btn" id="btn">Delete All</button>
 
 <script>
@@ -55,50 +57,63 @@
     // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
     //     До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
 
+    function listPage() {
 
-    const products = localStorage.getItem('products');
-    const header = document.getElementById('header');
-    const btn = document.getElementById('btn');
-    const productList = JSON.parse(products);
-    // console.log(productList);
+        const productList = JSON.parse(localStorage.getItem('products'));
+        const header = document.getElementById('header');
+        const btnDeleteAll = document.getElementById('btn');
 
-    for (const product of productList) {
-
-        const div = document.createElement('div');
-        div.classList.add('productList');
-
-        const container = document.createElement('div');
-        container.classList.add('box');
-
-        container.innerHTML = `
-Name: ${product.name}; <br>
-Quantity: ${product.quantity}; <br>
-Price: ${product.price} UAH; <br>
-<img src="${product.image}" alt="${product.name}">
-`;
-        div.append(container);
-        header.append(div);
-        document.body.append(header);
-
-        const button = document.createElement('button');
-        button.innerText = 'DEL';
-        div.append(button);
-
-        button.onclick = function (ev) {
-            const myProduct = JSON.parse(localStorage.getItem("products"));
-            myProduct.splice(0, 1); ////видаляє по нульовому товару- нерозібрався як відловити потрібний товар
-            localStorage.setItem('products', JSON.stringify(myProduct))
-            window.location.reload();
-
-            console.log(ev);
-            // console.log(myProduct);
+        if (!productList) {
+            const textNoProducts = document.createElement('h2');
+            textNoProducts.innerText = 'The basket is empty';
+            header.appendChild(textNoProducts);
+            return;
         }
+
+        for (const product of productList) {
+
+            const div = document.createElement('div');
+            div.classList.add('productList');
+
+            const container = document.createElement('div');
+            container.classList.add('box');
+
+            const {name, quantity, price, image, id} = product;
+            container.innerHTML = `
+            Product code: ${id}, <br>
+            Name: ${name}, <br>
+            Quantity: ${quantity}, <br>
+            Price: ${price} UAH, <br>
+            <img src="${image}" alt="${product.name}">
+            `;
+            div.appendChild(container);
+            header.appendChild(div);
+            document.body.appendChild(header);
+
+            const buttonItem = document.createElement('button');
+            buttonItem.innerText = 'DEL';
+            div.appendChild(buttonItem);
+
+            buttonItem.onclick = function (ev) {
+
+                let id = div.innerText.split(',')[0].split(':', 2)[1];
+
+                const indexToRemove = productList.findIndex(product => +product.id === +id);
+
+                productList.splice(indexToRemove, 1);
+                localStorage.setItem('products', JSON.stringify(productList))
+                window.location.reload();
+
+            }
+        }
+
+        btnDeleteAll.onclick = function (ev) {
+            localStorage.clear();
+            window.location.reload();
+        };
     }
 
-    btn.onclick = function (ev) {
-        localStorage.clear();
-        window.location.reload();
-    };
+    listPage()
 
 </script>
 

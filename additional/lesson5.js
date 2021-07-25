@@ -31,16 +31,19 @@ const price = formForProduct.priceProduct;
 const image = formForProduct.imageProduct;
 const submit = formForProduct.submit;
 
-let productList = [];
+const productList = JSON.parse(localStorage.getItem('products')) || [];
 
 formForProduct.addEventListener('submit', (ev) => {
     ev.preventDefault();
     let product = {
+        id: Math.floor(Math.random()*10000),
         name: name.value,
         quantity: quantity.value,
         price: price.value,
         image: image.value
     };
+
+    console.log(product);
     productList.push(product);
     localStorage.setItem('products', JSON.stringify(productList));
 });
