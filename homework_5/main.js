@@ -44,7 +44,9 @@ changeTextColor('blue');
 // -- отримати весь список класів елемента з id=rules і вивести їх в console.log
 
 const allRules = document.getElementById('rules');
-console.log(allRules);
+console.log(allRules.classList)
+
+
 
 // -- отримати всі елементи з класом fc_rules. визначити їм 2 події "клік", одна вивдоить текст елементу, інша довільний ьексь
 
