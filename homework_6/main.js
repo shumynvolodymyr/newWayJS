@@ -34,13 +34,13 @@ fetch('https://jsonplaceholder.typicode.com/comments')
 
                 let h4 = document.createElement('h4');
 
-                button.onclick = () => {
-
-                    h4.innerHTML = ''
-                    h4.append(comment.body)
-                    div.append(h4)
+                    button.onclick = () => {
+                       h4.innerHTML = ''
+                        h4.append(comment.body)
+                        div.append(h4)
 
                 }
             }
         }
     );
+

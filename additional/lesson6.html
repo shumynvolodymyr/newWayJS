@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additional Lesson 6</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        .usersBox {
+            width: 33%;
+        }
+
+        .postsBox {
+            width: 33%;
+        }
+
+        .userList {
+            display: flex;
+        }
+
+        button {
+            height: fit-content;
+            margin: auto;
+
+        }
+
+        p {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="usersBox"></div>
+<div class="postsBox"></div>
+
+
+<script>
+    // 1.
+    // Отримати відповідь з цього ресурсу відповідь, та вивести в документ як в прикладі на занятті
+    // https://jsonplaceholder.typicode.com/users
+    //         кожному елементу юзера створити кнопку, при клику на яку в окремий блок виводяться всі пости поточного юзера.
+    //         Кожному елементу post створити кнопку, при клику на яку в окремий блок виводяться всі коментарі поточного поста
+
+    const usersBox = document.getElementsByClassName('usersBox')[0];
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(value => value.json())
+        .then(users => {
+            // console.log(users);
+            for (const user of users) {
+
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('userList');
+                const p = document.createElement('p');
+                const button = document.createElement('button');
+                button.innerText = 'Post'
+
+                p.innerText = `
+${user.id}. ${user.name}.
+Email: ${user.email}.
+Address: ${user.address.street}.`;
+
+                userDiv.append(p);
+                userDiv.append(button);
+                usersBox.append(userDiv);
+
+                button.onclick = () => {
+                    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+                        .then(value => value.json())
+                        .then(posts => {
+                            const postsBox = document.getElementsByClassName('postsBox')[0];
+                            postsBox.innerText = '';
+                            for (const post of posts) {
+                                const h4 = document.createElement('h4');
+                                h4.innerText = `${post.id}. ${post.title}`;
+                                postsBox.append(h4);
+
+                                const btn = document.createElement('button');
+                                btn.innerText = 'Comment';
+                                h4.append(btn);
+
+                                btn.onclick = () => {
+                                    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+                                        .then(value => value.json())
+                                        .then(comments => {
+
+                                            const commentBox = document.createElement('div');
+                                            commentBox.innerText = '';
+                                            document.body.appendChild(commentBox)
+
+                                            for (const comment of comments) {
+                                                const p = document.createElement('p');
+                                                p.innerText = `${comment.id}.${comment.body}`;
+                                                commentBox.appendChild(p);
+
+                                            }
+                                        });
+                                }
+                            }
+                        });
+                }
+            }
+        });
+
+</script>
+</body>
+</html>
