@@ -15,6 +15,9 @@
         .postsBox {
             width: 33%;
         }
+        .commentsBox {
+            width: 33%;
+        }
 
         .userList {
             display: flex;
@@ -35,7 +38,7 @@
 
 <div class="usersBox"></div>
 <div class="postsBox"></div>
-
+<div class="commentsBox"></div>
 
 <script>
     // 1.
@@ -49,15 +52,14 @@
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(value => value.json())
         .then(users => {
-            // console.log(users);
-            for (const user of users) {
 
+            for (const user of users) {
                 const userDiv = document.createElement('div');
                 userDiv.classList.add('userList');
                 const p = document.createElement('p');
                 const button = document.createElement('button');
-                button.innerText = 'Post'
 
+                button.innerText = 'Post'
                 p.innerText = `
 ${user.id}. ${user.name}.
 Email: ${user.email}.
@@ -71,8 +73,10 @@ Address: ${user.address.street}.`;
                     fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
                         .then(value => value.json())
                         .then(posts => {
+
                             const postsBox = document.getElementsByClassName('postsBox')[0];
                             postsBox.innerText = '';
+
                             for (const post of posts) {
                                 const h4 = document.createElement('h4');
                                 h4.innerText = `${post.id}. ${post.title}`;
@@ -87,15 +91,13 @@ Address: ${user.address.street}.`;
                                         .then(value => value.json())
                                         .then(comments => {
 
-                                            const commentBox = document.createElement('div');
-                                            commentBox.innerText = '';
-                                            document.body.appendChild(commentBox)
+                                            const commentBox = document.getElementsByClassName('commentsBox')[0];
+                                            commentBox.innerText='';
 
                                             for (const comment of comments) {
                                                 const p = document.createElement('p');
                                                 p.innerText = `${comment.id}.${comment.body}`;
                                                 commentBox.appendChild(p);
-
                                             }
                                         });
                                 }
