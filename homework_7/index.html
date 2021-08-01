@@ -23,149 +23,315 @@
     //
     // І так далі
 
-    function wakeUp(hour, cb) {
-        setTimeout(() => {
-            console.log('Новий день, нові цілі!');
-            if (hour > 8) {
-                cb('так все життя можна проспати',null);
-                return;
-            }
-            cb(null, 'Треба випити кави..');
-        }, 3000);
-    }
+    // function wakeUp(hour, cb) {
+    //     setTimeout(() => {
+    //         console.log('Новий день, нові цілі!');
+    //         if (hour > 8) {
+    //             cb('так все життя можна проспати');
+    //             return;
+    //         }
+    //         cb(null, 'Треба випити кави..');
+    //     }, 3000);
+    // }
+    //
+    // function breakfast(waterIsAvailable, cb) {
+    //     setTimeout(() => {
+    //         if (!waterIsAvailable) {
+    //             cb('Без води немає кави');
+    //             return;
+    //         }
+    //         cb(null, 'ухх, кава міцна що аж очі вилазять)');
+    //     }, 1000);
+    // }
+    //
+    // function goToShower(hotWaterIsAvailable, cb) {
+    //     setTimeout(() => {
+    //         if (!hotWaterIsAvailable) {
+    //             cb('Без гарячої води фіг помиєшся');
+    //             return;
+    //         }
+    //         cb(null, 'Помився аж думки посвітліли:)');
+    //     }, 500);
+    // }
+    //
+    // function waitForTheBus(many, cb) {
+    //     setTimeout(() => {
+    //         if (!many) {
+    //             cb('без гроше прийдеться йти пішки');
+    //             return;
+    //         }
+    //         cb(null, 'В автобусі людей як шпротів у банці- можна було в душ і неходити ;D');
+    //     }, 3000);
+    // }
+    //
+    // function lunch(products, cb) {
+    //     setTimeout(() => {
+    //         if (!products) {
+    //             cb('Блін знову забув обід у холодильнику( ');
+    //             return;
+    //         }
+    //         cb(null, 'Поїв можна і віддихнути');
+    //     }, 1000);
+    // }
+    //
+    // function viewTheLecture(reviewed, cb) {
+    //     setTimeout(() => {
+    //         if (!reviewed) {
+    //             cb('Без перегляду цієї лекції фіг зроблю дз');
+    //             return;
+    //         }
+    //         cb(null, 'лекцію подивився, дезеху замутив');
+    //     }, 4000);
+    // }
+    //
+    // function run(footwear, cb) {
+    //     setTimeout(() => {
+    //         if (!footwear) {
+    //             cb('Босяком тяжко пробігти із швидкістю Усейна Болта');
+    //             return;
+    //         }
+    //         cb(null,'Побігав на славу');
+    //     }, 3000);
+    // }
+    //
+    // function sleep(hour, cb) {
+    //     setTimeout(() => {
+    //         if (hour > 23) {
+    //             cb('знову невисплюся');
+    //             return;
+    //         }
+    //         cb(null, 'Підзарядка почалася)...');
+    //     }, 5000);
+    // }
 
-    function breakfast(waterIsAvailable, cb) {
-        setTimeout(() => {
-            if (!waterIsAvailable) {
-                cb('Без води немає кави');
-                return;
-            }
-            cb(null, 'ухх, кава міцна що аж очі вилазять)');
-        }, 1000);
-    }
+    ////    ---------------------------CB---------------------------
 
-    function goToShower(hotWaterIsAvailable, cb) {
-        setTimeout(() => {
-            if (!hotWaterIsAvailable) {
-                cb('Без гарячої води фіг помиєшся');
-                return;
-            }
-            cb(null, 'Помився аж думки посвітліли:)');
-        }, 500);
-    }
+    // wakeUp(7, (err, eating) => {
+    //     if (err) {
+    //         console.error(err);
+    //     } else {
+    //         console.log(eating)
+    //
+    //         breakfast(true, (err, data) => {
+    //             if (err) {
+    //                 console.error(err);
+    //             } else {
+    //                 console.log(data);
+    //
+    //                 goToShower(true, (error, shower) => {
+    //                     if (error) {
+    //                         console.error(error);
+    //                     } else {
+    //                         console.log(shower);
+    //
+    //                         waitForTheBus(true, (err, data) => {
+    //                             if (err) {
+    //                                 console.error(err);
+    //                             } else {
+    //                                 console.log(data);
+    //
+    //                                 lunch(true, (err, data) => {
+    //                                     if (err) {
+    //                                         console.error(err);
+    //                                     } else {
+    //                                         console.log(data);
+    //                                         viewTheLecture(true, (err, data) => {
+    //                                             if (err) {
+    //                                                 console.error(err);
+    //                                             } else {
+    //                                                 console.log(data);
+    //
+    //                                                 run(true, (err, data) => {
+    //                                                     if (err) {
+    //                                                         console.error(err)
+    //                                                     } else {
+    //                                                         console.log(data);
+    //
+    //                                                         sleep(22, (err, data) => {
+    //                                                             if (err) {
+    //                                                                 console.error(err);
+    //                                                             } else {
+    //                                                                 console.log(data);
+    //                                                             }
+    //                                                         });
+    //                                                     }
+    //                                                 });
+    //                                             }
+    //                                         });
+    //                                     }
+    //                                 });
+    //                             }
+    //                         });
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     }
+    // });
 
-    function waitForTheBus(many, cb) {
-        setTimeout(() => {
-            if (!many) {
-                cb('без гроше прийдеться йти пішки');
-                return;
-            }
-            cb(null, 'В автобусі людей як шпротів у банці- можна було в душ і неходити ;D');
-        }, 3000);
-    }
+    ////------------------------------Promise---------------------------------
 
-    function lunch(products, cb) {
-        setTimeout(() => {
-            if (!products) {
-                cb('Блін знову забув обід у холодильнику( ');
-                return;
-            }
-            cb(null, 'Поїв можна і віддихнути');
-        }, 1000);
-    }
-
-    function viewTheLecture(reviewed, cb) {
-        setTimeout(() => {
-            if (!reviewed) {
-                cb('Без перегляду цієї лекції фіг зроблю дз');
-                return;
-            }
-            cb(null, 'лекцію подивився, дезеху замутив');
-        }, 4000);
-    }
-
-    function run(footwear, cb) {
-        setTimeout(() => {
-            if (!footwear) {
-                cb('Босяком тяжко пробігти із швидкістю Усейна Болта');
-                return;
-            }
-            cb(null,'Побігав на славу');
-        }, 3000);
-    }
-
-    function sleep(hour, cb) {
-        setTimeout(() => {
-            if (hour > 23) {
-                cb('знову невисплюся');
-                return;
-            }
-            cb(null, 'Підзарядка почалася)...');
-        }, 5000);
-    }
-
-    wakeUp(7, (err, eating) => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log(eating)
-
-            breakfast(true, (err, data) => {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log(data);
-
-                    goToShower(true, (error, shower) => {
-                        if (error) {
-                            console.error(error);
-                        } else {
-                            console.log(shower);
-
-                            waitForTheBus(true, (err, data) => {
-                                if (err) {
-                                    console.error(err);
-                                } else {
-                                    console.log(data);
-
-                                    lunch(true, (err, data) => {
-                                        if (err) {
-                                            console.error(err);
-                                        } else {
-                                            console.log(data);
-                                            viewTheLecture(true, (err, data) => {
-                                                if (err) {
-                                                    console.error(err);
-                                                } else {
-                                                    console.log(data);
-
-                                                    run(true, (err, data) => {
-                                                        if (err) {
-                                                            console.error(err)
-                                                        } else {
-                                                            console.log(data);
-
-                                                            sleep(22, (err, data) => {
-                                                                if (err) {
-                                                                    console.error(err);
-                                                                } else {
-                                                                    console.log(data);
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
+    function wakeUp(hour) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('Новий день, нові цілі!');
+                if (hour > 8) {
+                    reject('так все життя можна проспати');
                 }
-            });
+                resolve('Треба випити кави..');
+            }, 3000);
+        });
+    }
+
+    function breakfast(waterIsAvailable = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!waterIsAvailable) {
+                    reject('Без води немає кави');
+                }
+                resolve('ухх, кава міцна що аж очі вилазять)');
+            }, 1000);
+        });
+    }
+
+    function goToShower(hotWaterIsAvailable = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!hotWaterIsAvailable) {
+                    reject('Без гарячої води фіг помиєшся');
+                }
+                resolve('Помився аж думки посвітліли:)');
+            }, 500);
+        });
+    }
+
+    function waitForTheBus(many = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!many) {
+                    reject('без гроше прийдеться йти пішки');
+                }
+                resolve('В автобусі людей як шпротів у банці- можна було в душ і неходити ;D');
+            }, 3000);
+        });
+    }
+
+    function lunch(products = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!products) {
+                    reject('Блін знову забув обід у холодильнику( ');
+                }
+                resolve('Поїв можна і віддихнути');
+            }, 1000);
+        });
+    }
+
+    function viewTheLecture(reviewed = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!reviewed) {
+                    reject('Без перегляду цієї лекції фіг зроблю дз');
+                }
+                resolve('лекцію подивився, дезеху замутив');
+            }, 4000);
+        });
+    }
+
+    function run(footwear) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (footwear !== 'sneakers') {
+                    reject('Босяком тяжко пробігти із швидкістю Усейна Болта');
+                    return;
+                }
+                resolve('Побігав на славу');
+            }, 3000);
+        });
+    }
+
+    function sleep(hour) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (hour > 23) {
+                    reject('знову невисплюся');
+                    return;
+                }
+                resolve('Підзарядка почалася)...');
+            }, 5000);
+        });
+    }
+
+    // wakeUp(6)
+    //     .then(value => {
+    //         console.log(value)
+    //         return breakfast();
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return goToShower();
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return waitForTheBus();
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return lunch();
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return viewTheLecture();
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return run('босий');
+    //     })
+    //     .then(value => {
+    //         console.log(value);
+    //         return sleep(23);
+    //     })
+    //     .then(value => console.log(value))
+    //
+    //     .catch(reason => {
+    //         console.error(reason);
+    //     });
+
+    ////------------------------------Async/await---------------------------------
+
+    async function myDay() {
+        try {
+            const alarm = await wakeUp(6);
+            console.log(alarm);
+
+            const snack = await breakfast();
+            console.log(snack);
+
+            const shower = await goToShower();
+            console.log(shower);
+
+            const waitingBus = await waitForTheBus();
+            console.log(waitingBus);
+
+            const haveLunch = await lunch();
+            console.log(haveLunch);
+
+            const video = await viewTheLecture();
+            console.log(video);
+
+            const running = await run('barefoot');
+            console.log(running);
+
+            const beSleep = await sleep(23);
+            console.log(beSleep);
         }
-    });
+        catch (err) {
+            console.error(err);
+        }
+    }
+
+
+    myDay();
 
 </script>
 
