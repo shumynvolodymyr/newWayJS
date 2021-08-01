@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 7</title>
+</head>
+<body>
+
+<script>
+
+    // Зробити свій розпорядок дня.
+    //
+    //     У вас має бути більше 10 асинхронних дій з рандомними затримками.
+    //     Вам необхідно синхронізувати всі свої дії за допомогою промісів та async await (Код має бути написаний окремо)
+    // Затримка має бути НЕ в порядку зростання, а будь яка. При тому ваші дії мають бути синхронізовані.
+    //
+    //     Напиклад.
+    //     Прикнутись - 0.3с
+    // Поснідати - 1с
+    // Піти в душ - 0.5с
+    // Дочекатись автобус - 3с
+    // Пообідати - 1с
+    //
+    // І так далі
+
+    function wakeUp(hour, cb) {
+        setTimeout(() => {
+            console.log('Новий день, нові цілі!');
+            if (hour > 8) {
+                cb('так все життя можна проспати',null);
+                return;
+            }
+            cb(null, 'Треба випити кави..');
+        }, 3000);
+    }
+
+    function breakfast(waterIsAvailable, cb) {
+        setTimeout(() => {
+            if (!waterIsAvailable) {
+                cb('Без води немає кави');
+                return;
+            }
+            cb(null, 'ухх, кава міцна що аж очі вилазять)');
+        }, 1000);
+    }
+
+    function goToShower(hotWaterIsAvailable, cb) {
+        setTimeout(() => {
+            if (!hotWaterIsAvailable) {
+                cb('Без гарячої води фіг помиєшся');
+                return;
+            }
+            cb(null, 'Помився аж думки посвітліли:)');
+        }, 500);
+    }
+
+    function waitForTheBus(many, cb) {
+        setTimeout(() => {
+            if (!many) {
+                cb('без гроше прийдеться йти пішки');
+                return;
+            }
+            cb(null, 'В автобусі людей як шпротів у банці- можна було в душ і неходити ;D');
+        }, 3000);
+    }
+
+    function lunch(products, cb) {
+        setTimeout(() => {
+            if (!products) {
+                cb('Блін знову забув обід у холодильнику( ');
+                return;
+            }
+            cb(null, 'Поїв можна і віддихнути');
+        }, 1000);
+    }
+
+    function viewTheLecture(reviewed, cb) {
+        setTimeout(() => {
+            if (!reviewed) {
+                cb('Без перегляду цієї лекції фіг зроблю дз');
+                return;
+            }
+            cb(null, 'лекцію подивився, дезеху замутив');
+        }, 4000);
+    }
+
+    function run(footwear, cb) {
+        setTimeout(() => {
+            if (!footwear) {
+                cb('Босяком тяжко пробігти із швидкістю Усейна Болта');
+                return;
+            }
+            cb(null,'Побігав на славу');
+        }, 3000);
+    }
+
+    function sleep(hour, cb) {
+        setTimeout(() => {
+            if (hour > 23) {
+                cb('знову невисплюся');
+                return;
+            }
+            cb(null, 'Підзарядка почалася)...');
+        }, 5000);
+    }
+
+    wakeUp(7, (err, eating) => {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log(eating)
+
+            breakfast(true, (err, data) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+
+                    goToShower(true, (error, shower) => {
+                        if (error) {
+                            console.error(error);
+                        } else {
+                            console.log(shower);
+
+                            waitForTheBus(true, (err, data) => {
+                                if (err) {
+                                    console.error(err);
+                                } else {
+                                    console.log(data);
+
+                                    lunch(true, (err, data) => {
+                                        if (err) {
+                                            console.error(err);
+                                        } else {
+                                            console.log(data);
+                                            viewTheLecture(true, (err, data) => {
+                                                if (err) {
+                                                    console.error(err);
+                                                } else {
+                                                    console.log(data);
+
+                                                    run(true, (err, data) => {
+                                                        if (err) {
+                                                            console.error(err)
+                                                        } else {
+                                                            console.log(data);
+
+                                                            sleep(22, (err, data) => {
+                                                                if (err) {
+                                                                    console.error(err);
+                                                                } else {
+                                                                    console.log(data);
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+</script>
+
+</body>
+</html>
