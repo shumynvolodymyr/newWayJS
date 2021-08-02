@@ -1,0 +1,28 @@
+.postDiv {
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 10px 10px 10px crimson;
+    border: 1px dotted silver;
+    border-radius: 10px;
+}
+
+.commentsBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.commentBox {
+    width: 22%;
+    border: 1px dotted silver;
+   padding: 10px;
+    margin: 10px;
+    box-shadow: 10px 10px 10px crimson;
+    border-radius: 10px;
+}
+
+button {
+    border-radius: 5px;
+    text-transform: uppercase;
+}

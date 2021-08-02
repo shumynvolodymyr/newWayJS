@@ -1,20 +1,58 @@
-div {
-    width: 100%;
-    margin: 20px;
+body{
+    display: flex;
+}
+.userDiv {
+    width: 20%;
+    padding: 20px;
+    text-align: center;
 }
 .btnClass {
-    /*margin: 90% auto;*/
+    margin: 90% auto;
     display: block;
+    text-decoration: none;
+    background: crimson;
+    border-radius: 10px;
+    text-transform: uppercase;
 }
 
-.postDiv {
-    width: 100%;
+.btnClass:hover{
+    background: #eeb32a;
+}
+
+.postsDiv {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    height: fit-content;
+    justify-content: space-around;
+    margin-top: 130px;
 }
 
 .titleDiv {
-    width: 18%;
+    width: 15%;
     margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 10px crimson;
+    border-radius: 10px;
+    text-align: center;
+}
+.titleDiv p{
+  height: 50%;
+}
+.titleDiv a{
+  text-decoration: none;
+    color: crimson;
+    text-transform: uppercase;
+}
+
+h2 {
+    box-shadow: 10px 10px 10px crimson;
+    border-radius: 10px;
+}
+
+.userDiv p {
+    box-shadow: 10px 10px 10px crimson;
+    border-radius: 10px;
 }
 

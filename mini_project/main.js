@@ -33,7 +33,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             const divBox = document.createElement('div');
             const p = document.createElement('p');
             const button = document.createElement('button');
-            let detailsLink = document.createElement('a');
+            const detailsLink = document.createElement('a');
 
             divBox.className = 'userBox'
             p.innerText = `${id}. ${name}`;

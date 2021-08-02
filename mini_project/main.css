@@ -2,13 +2,21 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    background: #cce2ee;
 }
 
 .userBox {
-    width: 50%;
+    width: 45%;
+    border: 1px dotted silver;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #d9d7d7;
 }
 
 button a {
     text-decoration: none;
     color: crimson;
+    text-transform: uppercase;
 }

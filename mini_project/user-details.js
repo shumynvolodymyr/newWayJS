@@ -14,13 +14,13 @@ const {
     company: {name:companyName, catchPhrase, bs}
 } = user
 
-const div = document.createElement('div');
-const h1 = document.createElement('h1');
-const  h3= document.createElement('h3');
+const userDiv = document.getElementsByClassName('userDiv')[0];
+const h2 = document.createElement('h2');
+const  p= document.createElement('p');
 const button = document.createElement('button');
 
-h1.innerText=`${id}. ${name} ${username},`;
-h3.innerText=`
+h2.innerText=`${id}. ${name} ${username},`;
+p.innerText=`
 Email: ${email},
 Phone: ${phone},
 Website: ${website},
@@ -44,28 +44,31 @@ bs: ${bs},
 button.innerText = 'post of current user';
 button.className='btnClass';
 
-div.append(h1,h3,button);
-document.body.append(div);
+userDiv.append(h2,p,button);
 
 button.onclick=()=>{
     fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
         .then(value => value.json())
         .then(value => {
 
-            const postDiv = document.createElement('div');
-            postDiv.className='postDiv';
+            const postsDiv = document.getElementsByClassName('postsDiv')[0];
+            postsDiv.innerText= '';
 
             for (const postId of value) {
+                // console.log(postId);
                 const titleDiv = document.createElement('div');
                 titleDiv.className='titleDiv';
                 const p = document.createElement('p');
                 const button = document.createElement('button');
-                button.innerText='post-details';
+                const detailsLink = document.createElement('a');
 
                 p.innerText= `Title: ${postId.title}`;
+                detailsLink.innerText='Post-details';
+                detailsLink.href=`post-details.html?postId=${JSON.stringify(postId)}`;
+
+                button.append(detailsLink);
                 titleDiv.append(p,button);
-                postDiv.append(titleDiv);
-                div.append(postDiv);
+                postsDiv.append(titleDiv);
             }
-        })
+        });
 }
