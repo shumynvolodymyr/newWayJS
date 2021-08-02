@@ -1,0 +1,20 @@
+div {
+    width: 100%;
+    margin: 20px;
+}
+.btnClass {
+    /*margin: 90% auto;*/
+    display: block;
+}
+
+.postDiv {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.titleDiv {
+    width: 18%;
+    margin: 10px;
+}
+

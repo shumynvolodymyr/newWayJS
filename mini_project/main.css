@@ -1,0 +1,14 @@
+.usersBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userBox {
+    width: 50%;
+}
+
+button a {
+    text-decoration: none;
+    color: crimson;
+}
