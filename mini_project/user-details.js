@@ -1,5 +1,4 @@
-const JSONUser = new URL(location).searchParams.get('user');
-const user = JSON.parse(JSONUser)
+const user = JSON.parse(new URL(location).searchParams.get('user'));
 
 // document.body.innerText = JSON.stringify(user,null,2);
 
@@ -12,11 +11,12 @@ const {
     phone,
     website,
     company: {name:companyName, catchPhrase, bs}
-} = user
+} = user;
 
-const userDiv = document.getElementsByClassName('userDiv')[0];
+const usersBox = document.getElementsByClassName('usersBox')[0];
 const h2 = document.createElement('h2');
 const  p= document.createElement('p');
+const btn = document.createElement('button');
 const button = document.createElement('button');
 
 h2.innerText=`${id}. ${name} ${username},`;
@@ -41,34 +41,41 @@ catchPhrase: ${catchPhrase},
 bs: ${bs},
 `;
 
-button.innerText = 'post of current user';
-button.className='btnClass';
+btn.innerText = 'post of current user';
+btn.className='btnClass';
+button.className = 'go-back';
+button.innerText = 'Go back!';
 
-userDiv.append(h2,p,button);
+p.append(button,btn)
+usersBox.append(h2,p);
 
-button.onclick=()=>{
+document.getElementsByClassName('go-back')[0].addEventListener('click', () => {
+    history.back();
+});
+
+btn.onclick=()=>{
     fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
         .then(value => value.json())
-        .then(value => {
+        .then(posts => {
 
-            const postsDiv = document.getElementsByClassName('postsDiv')[0];
-            postsDiv.innerText= '';
+            const postsBox = document.getElementsByClassName('postsBox')[0];
+            postsBox.innerText= '';
 
-            for (const postId of value) {
-                // console.log(postId);
-                const titleDiv = document.createElement('div');
-                titleDiv.className='titleDiv';
+            posts.forEach(post=>{
+
+                const postBox = document.createElement('div');
+                postBox.className='postBox';
                 const p = document.createElement('p');
                 const button = document.createElement('button');
                 const detailsLink = document.createElement('a');
 
-                p.innerText= `Title: ${postId.title}`;
+                p.innerText= `Title: ${post.title}`;
                 detailsLink.innerText='Post-details';
-                detailsLink.href=`post-details.html?postId=${JSON.stringify(postId)}`;
+                detailsLink.href=`post-details.html?post=${JSON.stringify(post)}`;
 
                 button.append(detailsLink);
-                titleDiv.append(p,button);
-                postsDiv.append(titleDiv);
-            }
+                postBox.append(p,button);
+                postsBox.append(postBox);
+            });
         });
 }

@@ -3,7 +3,6 @@
 // 2 Вывести id,name всех user в index.html. Отдельный блок для каждого user.
 // 3 Добавить каждому блоку кнопку/ссылку , при клике на которую происходит переход на страницу user-details.html, которая имеет детальную информацию про объект на который кликнули
 //
-//
 // На странице user-details.html:
 // 4 Вывести всю, без исключения, информацию про объект user на кнопку/ссылку которого был совершен клик ранее.
 // 5 Добавить кнопку "post of current user", при клике на которую, появляются title всех постов текущего юзера
@@ -20,30 +19,27 @@
 // блоки с краткой информацией про post - в ряд по 5 объектов.
 // post-details.html - блок с информацией про пост вверху. Комментарии - по 4 в ряд.
 // Все без исключения элементы, который характеризируют user,post,comment  визуализировать, так, что бы было видно их блоки (дать задний фон + margin. Иными словами - крайне четкая сетка)
-//
+
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
-    .then(value => {
-        const usersBox = document.createElement('div');
-        usersBox.className = 'usersBox';
+    .then(users => {
 
-        for (const user of value) {
+        const usersBox = document.getElementById('users-Box')
 
+        users.forEach(user=>{
             const {id, name} = user;
-            const divBox = document.createElement('div');
+            const userBox = document.createElement('div');
             const p = document.createElement('p');
             const button = document.createElement('button');
             const detailsLink = document.createElement('a');
 
-            divBox.className = 'userBox'
+            userBox.className = 'userBox'
             p.innerText = `${id}. ${name}`;
             detailsLink.innerText = 'Details';
             detailsLink.href = `user-details.html?user=${JSON.stringify(user)}`;
 
-            divBox.append(p);
-            divBox.append(button);
+            userBox.append(p,button);
             button.append(detailsLink);
-            usersBox.append(divBox);
-            document.body.append(usersBox);
-        }
+            usersBox.append(userBox);
+        })
     })

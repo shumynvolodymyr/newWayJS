@@ -1,9 +1,17 @@
-.usersBox {
+body {
+    background: url("image/img.jpg");
+    font-family: 'Rubik', 'Tahoma', sans-serif;
+    font-size: 15px;
+}
+
+#users-Box {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    background: #cce2ee;
+    justify-content: center;
+    border-radius: 5px;
+    color: rgb(255, 142, 0);
+
 }
 
 .userBox {
@@ -11,12 +19,17 @@
     border: 1px dotted silver;
     padding: 10px;
     margin: 10px;
-    border-radius: 10px;
-    background: #d9d7d7;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
 }
 
 button a {
     text-decoration: none;
-    color: crimson;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
+}
+
+button a:hover {
+    color: rgb(255, 142, 0);
 }

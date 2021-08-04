@@ -1,58 +1,83 @@
-body{
-    display: flex;
+body {
+    background: url("image/img.jpg");
+    font-family: 'Rubik', 'Tahoma', sans-serif;
+    font-size: 15px;
 }
-.userDiv {
-    width: 20%;
-    padding: 20px;
+
+.usersBox {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: rgb(255, 142, 0);
+}
+
+.usersBox h2 {
+    width: 100%;
     text-align: center;
 }
-.btnClass {
-    margin: 90% auto;
-    display: block;
+
+.usersBox p {
+    width: 30%;
+    text-align: center;
+}
+
+.usersBox button {
+    margin-top: 90%;
     text-decoration: none;
-    background: crimson;
-    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
     text-transform: uppercase;
 }
 
-.btnClass:hover{
-    background: #eeb32a;
+.usersBox button:hover {
+    background: rgb(255, 142, 0);
+    box-shadow: 0 10px 10px rgba(225, 0, 0, 0.18);
 }
 
-.postsDiv {
-    width: 80%;
+.postsBox {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     height: fit-content;
-    justify-content: space-around;
     margin-top: 130px;
+    color: rgb(255, 142, 0);
 }
 
-.titleDiv {
+.postBox {
     width: 15%;
     margin: 10px;
     padding: 10px;
-    border: 1px solid black;
-    box-shadow: 10px 10px 10px crimson;
+    border: 1px solid rgb(255, 142, 0);
     border-radius: 10px;
     text-align: center;
-}
-.titleDiv p{
-  height: 50%;
-}
-.titleDiv a{
-  text-decoration: none;
-    color: crimson;
-    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
 }
 
+.postBox p {
+    height: 50%;
+}
+
+.postBox a {
+    text-decoration: none;
+    color: rgb(255, 142, 0);
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+ .postBox a:hover {
+     color: rgba(0, 0, 0, 0.45);
+ }
+
 h2 {
-    box-shadow: 10px 10px 10px crimson;
-    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .08);
+    border-radius: 4px;
 }
 
 .userDiv p {
-    box-shadow: 10px 10px 10px crimson;
-    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .08);
+    border-radius: 4px;
 }
 

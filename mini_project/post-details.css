@@ -1,29 +1,45 @@
-.postDiv {
+body {
+    background: url("image/img.jpg");
+    font-family: 'Rubik', 'Tahoma', sans-serif;
+    font-size: 15px;
+}
+
+.postsBox {
     padding: 10px;
     margin: 10px;
-    box-shadow: 10px 10px 10px crimson;
     border: 1px dotted silver;
-    border-radius: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(255, 142, 0);
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
 }
 
 .commentsBox {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 10px;
     box-sizing: border-box;
+    color: rgb(255, 142, 0);
 }
 
 .commentBox {
     width: 22%;
     border: 1px dotted silver;
-   padding: 10px;
-    margin: 10px;
-    box-shadow: 10px 10px 10px crimson;
-    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
 }
 
 button {
-    border-radius: 5px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
 }
+
+button:hover {
+    color: rgb(255, 142, 0);
+}
+
