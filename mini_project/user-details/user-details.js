@@ -1,6 +1,6 @@
 const user = JSON.parse(new URL(location).searchParams.get('user'));
 
-// document.body.innerText = JSON.stringify(user-details,null,2);
+// document.body.innerText = JSON.stringify(user,null,2);
 
 const {
     id,
