@@ -1,6 +1,6 @@
 const user = JSON.parse(new URL(location).searchParams.get('user'));
 
-// document.body.innerText = JSON.stringify(user,null,2);
+// document.body.innerText = JSON.stringify(user-details,null,2);
 
 const {
     id,
@@ -41,7 +41,7 @@ catchPhrase: ${catchPhrase},
 bs: ${bs},
 `;
 
-btn.innerText = 'post of current user';
+btn.innerText = 'post of current user-details';
 btn.className='btnClass';
 button.className = 'go-back';
 button.innerText = 'Go back!';
@@ -71,7 +71,7 @@ btn.onclick=()=>{
 
                 p.innerText= `Title: ${post.title}`;
                 detailsLink.innerText='Post-details';
-                detailsLink.href=`post-details.html?post=${JSON.stringify(post)}`;
+                detailsLink.href=`../post-details/post-details.html?post=${JSON.stringify(post)}`;
 
                 button.append(detailsLink);
                 postBox.append(p,button);
